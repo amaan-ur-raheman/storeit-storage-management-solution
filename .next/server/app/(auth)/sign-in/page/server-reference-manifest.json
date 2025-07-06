@@ -1,0 +1,49 @@
+{
+  "node": {
+    "7fbd2fa925ba7d865d47033d608db409f2caa4be0e": {
+      "workers": {
+        "app/(auth)/sign-in/page": {
+          "moduleId": "[project]/.next-internal/server/app/(auth)/sign-in/page/actions.js { ACTIONS_MODULE0 => \"[project]/lib/actions/user.actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(auth)/sign-in/page": "action-browser"
+      }
+    },
+    "7f978954c5a642a14bee359844137f4665893dc18c": {
+      "workers": {
+        "app/(auth)/sign-in/page": {
+          "moduleId": "[project]/.next-internal/server/app/(auth)/sign-in/page/actions.js { ACTIONS_MODULE0 => \"[project]/lib/actions/user.actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(auth)/sign-in/page": "action-browser"
+      }
+    },
+    "7fc932ab75f2356818f9faee00df0ed2b70621b98c": {
+      "workers": {
+        "app/(auth)/sign-in/page": {
+          "moduleId": "[project]/.next-internal/server/app/(auth)/sign-in/page/actions.js { ACTIONS_MODULE0 => \"[project]/lib/actions/user.actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(auth)/sign-in/page": "action-browser"
+      }
+    },
+    "7ff32fecbf6e333c8259cff2858f6410be38e3b8e3": {
+      "workers": {
+        "app/(auth)/sign-in/page": {
+          "moduleId": "[project]/.next-internal/server/app/(auth)/sign-in/page/actions.js { ACTIONS_MODULE0 => \"[project]/lib/actions/user.actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(auth)/sign-in/page": "action-browser"
+      }
+    }
+  },
+  "edge": {}
+}
