@@ -94,19 +94,23 @@ export const verifySecret = async ({
 };
 
 export const getCurrentUser = async () => {
-    const { account, databases } = await createSessionClient();
+    try {
+        const { account, databases } = await createSessionClient();
 
-    const result = await account.get();
+        const result = await account.get();
 
-    const user = await databases.listDocuments(
-        appwriteConfig.databaseId,
-        appwriteConfig.usersCollectionId,
-        [Query.equal("accountId", result.$id)]
-    );
+        const user = await databases.listDocuments(
+            appwriteConfig.databaseId,
+            appwriteConfig.usersCollectionId,
+            [Query.equal("accountId", result.$id)]
+        );
 
-    if (user.total <= 0) return null;
+        if (user.total <= 0) return null;
 
-    return parseStringify(user.documents[0]);
+        return parseStringify(user.documents[0]);
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 export const signOutUser = async () => {
@@ -128,12 +132,12 @@ export const signInUser = async ({ email }: { email: string }) => {
 
         // User exits, send OTP
         if (existingUser) {
-           await sendEmailOTP({email});
-           return parseStringify({ accountId: existingUser.accountId });
+            await sendEmailOTP({ email });
+            return parseStringify({ accountId: existingUser.accountId });
         }
 
-        return parseStringify({ accountId: null, error: "User not found" })
-    } catch(error) {
-        handleError(error, "Failed to sign in user")
+        return parseStringify({ accountId: null, error: "User not found" });
+    } catch (error) {
+        handleError(error, "Failed to sign in user");
     }
 };

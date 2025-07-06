@@ -910,13 +910,17 @@ const verifySecret = async ({ accountId, password })=>{
     }
 };
 const getCurrentUser = async ()=>{
-    const { account, databases } = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$appwrite$2f$index$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["createSessionClient"])();
-    const result = await account.get();
-    const user = await databases.listDocuments(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$appwrite$2f$config$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["appwriteConfig"].databaseId, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$appwrite$2f$config$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["appwriteConfig"].usersCollectionId, [
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$node$2d$appwrite$2f$dist$2f$query$2e$mjs__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Query"].equal("accountId", result.$id)
-    ]);
-    if (user.total <= 0) return null;
-    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["parseStringify"])(user.documents[0]);
+    try {
+        const { account, databases } = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$appwrite$2f$index$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["createSessionClient"])();
+        const result = await account.get();
+        const user = await databases.listDocuments(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$appwrite$2f$config$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["appwriteConfig"].databaseId, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$appwrite$2f$config$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["appwriteConfig"].usersCollectionId, [
+            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$node$2d$appwrite$2f$dist$2f$query$2e$mjs__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Query"].equal("accountId", result.$id)
+        ]);
+        if (user.total <= 0) return null;
+        return (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["parseStringify"])(user.documents[0]);
+    } catch (error) {
+        console.log(error);
+    }
 };
 const signOutUser = async ()=>{
     const { account } = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$appwrite$2f$index$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["createSessionClient"])();
