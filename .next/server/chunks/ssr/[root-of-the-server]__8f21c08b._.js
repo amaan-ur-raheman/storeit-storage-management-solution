@@ -599,11 +599,28 @@ const Page = async ({ searchParams, params })=>{
     const searchText = (await searchParams)?.query || "";
     const sort = (await searchParams)?.sort || "";
     const types = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getFileTypesParams"])(type);
+    const totalSpace = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$actions$2f$file$2e$action$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getTotalSpaceUsed"])();
     const files = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$actions$2f$file$2e$action$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getFiles"])({
         types,
         searchText,
         sort
     });
+    // Calculate total size for the current type
+    const getTotalSize = ()=>{
+        if (!totalSpace) return 0;
+        switch(type){
+            case "documents":
+                return totalSpace.document?.size || 0;
+            case "images":
+                return totalSpace.image?.size || 0;
+            case "media":
+                return (totalSpace.video?.size || 0) + (totalSpace.audio?.size || 0);
+            case "others":
+                return totalSpace.other?.size || 0;
+            default:
+                return 0;
+        }
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "page-container",
         children: [
@@ -615,8 +632,8 @@ const Page = async ({ searchParams, params })=>{
                         children: type
                     }, void 0, false, {
                         fileName: "[project]/app/(root)/[type]/page.tsx",
-                        lineNumber: 21,
-                        columnNumber: 13
+                        lineNumber: 38,
+                        columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "total-size-section",
@@ -624,20 +641,21 @@ const Page = async ({ searchParams, params })=>{
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "body-1",
                                 children: [
-                                    "Total: ",
+                                    "Total:",
+                                    " ",
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "h5",
-                                        children: "0 MB"
+                                        children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["convertFileSize"])(getTotalSize()) || "0 MB"
                                     }, void 0, false, {
                                         fileName: "[project]/app/(root)/[type]/page.tsx",
-                                        lineNumber: 25,
-                                        columnNumber: 28
+                                        lineNumber: 43,
+                                        columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/(root)/[type]/page.tsx",
-                                lineNumber: 24,
-                                columnNumber: 17
+                                lineNumber: 41,
+                                columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "sort-container",
@@ -647,58 +665,58 @@ const Page = async ({ searchParams, params })=>{
                                         children: "Sort By:"
                                     }, void 0, false, {
                                         fileName: "[project]/app/(root)/[type]/page.tsx",
-                                        lineNumber: 29,
-                                        columnNumber: 21
+                                        lineNumber: 49,
+                                        columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Sort$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                         fileName: "[project]/app/(root)/[type]/page.tsx",
-                                        lineNumber: 33,
-                                        columnNumber: 21
+                                        lineNumber: 53,
+                                        columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/(root)/[type]/page.tsx",
-                                lineNumber: 28,
-                                columnNumber: 17
+                                lineNumber: 48,
+                                columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/(root)/[type]/page.tsx",
-                        lineNumber: 23,
-                        columnNumber: 13
+                        lineNumber: 40,
+                        columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/(root)/[type]/page.tsx",
-                lineNumber: 20,
-                columnNumber: 9
+                lineNumber: 37,
+                columnNumber: 13
             }, this),
-            files.total > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+            files && files.total > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
                 className: "file-list",
                 children: files.documents.map((file)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Card$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                         file: file
                     }, file.$id, false, {
                         fileName: "[project]/app/(root)/[type]/page.tsx",
-                        lineNumber: 43,
-                        columnNumber: 21
+                        lineNumber: 63,
+                        columnNumber: 25
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/app/(root)/[type]/page.tsx",
-                lineNumber: 41,
-                columnNumber: 13
+                lineNumber: 61,
+                columnNumber: 17
             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                 className: "empty-list",
                 children: "No files found"
             }, void 0, false, {
                 fileName: "[project]/app/(root)/[type]/page.tsx",
-                lineNumber: 47,
-                columnNumber: 13
+                lineNumber: 67,
+                columnNumber: 17
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/(root)/[type]/page.tsx",
-        lineNumber: 19,
-        columnNumber: 5
+        lineNumber: 36,
+        columnNumber: 9
     }, this);
 };
 const __TURBOPACK__default__export__ = Page;
