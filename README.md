@@ -12,7 +12,7 @@
 
 **Your Personal Cloud Storage Platform - Secure, Fast, and Beautiful**
 
-[🚀 Live Demo](https://store-it.vercel.app/) • [📖 Documentation](#documentation) • [🐛 Report Bug](https://github.com/amaan-ur-raheman/storeit-storage-management-solution/issues) • [💡 Request Feature](https://github.com/amaan-ur-raheman/storeit-storage-management-solution/issues)
+[🚀 Live Demo](https://storeit-storage-management-git-7a82b9-amaans-projects-f2c35ea9.vercel.app) • [🐛 Report Bug](https://github.com/amaan-ur-raheman/storeit-storage-management-solution/issues) • [💡 Request Feature](https://github.com/amaan-ur-raheman/storeit-storage-management-solution/issues)
 
 </div>
 
@@ -269,8 +269,6 @@ Key components and their purposes:
 
 ### Getting Help
 
-- 📖 Check the [documentation](#documentation)
-- 💬 Join our [Discord community](https://discord.gg/your-invite)
 - 🐛 Report bugs in [GitHub Issues](https://github.com/amaan-ur-raheman/storeit-storage-management-solution/issues)
 
 ---
