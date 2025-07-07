@@ -861,6 +861,10 @@ body {
   background-color: rgb(250 114 117 / var(--tw-bg-opacity, 1));
 }
 
+.bg-card {
+  background-color: hsl(var(--card));
+}
+
 .bg-destructive {
   background-color: hsl(var(--destructive));
 }
@@ -903,10 +907,6 @@ body {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
-.bg-card {
-  background-color: hsl(var(--card));
-}
-
 .fill-current {
   fill: currentColor;
 }
@@ -917,6 +917,10 @@ body {
 
 .object-contain {
   object-fit: contain;
+}
+
+.p-0 {
+  padding: 0;
 }
 
 .p-1 {
@@ -933,10 +937,6 @@ body {
 
 .p-6 {
   padding: 1.5rem;
-}
-
-.p-0 {
-  padding: 0;
 }
 
 .px-2 {
@@ -1012,6 +1012,10 @@ body {
   padding-right: 2rem;
 }
 
+.pt-0 {
+  padding-top: 0;
+}
+
 .pt-2 {
   padding-top: .5rem;
 }
@@ -1022,10 +1026,6 @@ body {
 
 .pt-4 {
   padding-top: 1rem;
-}
-
-.pt-0 {
-  padding-top: 0;
 }
 
 .text-center {
@@ -1093,6 +1093,10 @@ body {
   color: rgb(250 114 117 / var(--tw-text-opacity, 1));
 }
 
+.text-card-foreground {
+  color: hsl(var(--card-foreground));
+}
+
 .text-destructive {
   color: hsl(var(--destructive));
 }
@@ -1138,10 +1142,6 @@ body {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-
-.text-card-foreground {
-  color: hsl(var(--card-foreground));
 }
 
 .underline-offset-4 {
